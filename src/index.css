@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.deactive {
+  clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+}
+
+.actived {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 55% 100%);
+}
+
+@layer base {
+  body {
+    @apply font-primary text-sm text-black leading-[20px];
+  }
+  h1 {
+    @apply font-primary text-[40px] leading-[45px] tracking-[2px] font-bold;
+  }
+  h2 {
+    @apply font-primary text-[30px] leading-[35px] tracking-[2px] font-bold;
+  }
+  h3 {
+    @apply font-primary text-[25px] leading-[30px] tracking-[2px] font-bold;
+  }
+  h4 {
+    @apply font-primary text-[15px] leading-[25px] tracking-[2px] font-bold;
+  }
+  h5 {
+    @apply font-primary text-[12px] leading-[20px] tracking-[2px];
+  }
+  h6 {
+    @apply font-primary text-[10px] leading-[20px] tracking-[2px];
+  }
+  .container {
+    @apply mx-auto max-w-[920px];
+  }
+  .submitBtn {
+    @apply py-2 px-5 bg-[#4193D4] rounded-sm hover:bg-green-800 duration-300 active:scale-90 text-white;
+  }
+  .showBtn {
+    @apply py-2 px-5 bg-indigo-700 rounded-sm hover:bg-indigo-800 duration-300 active:scale-90 text-white;
+  }
+  .processBtn {
+    @apply py-2 px-5  h-12 bg-[#17629C] rounded-sm duration-300  text-white;
+  }
+  .imgDefault {
+    @apply absolute w-full object-contain;
+  }
+  .actionBtn {
+    @apply py-2 px-5 h-12 bg-primary rounded-sm hover:bg-[#17629C] duration-300 active:scale-90 text-white;
+  }
+  .hoverBtn {
+    @apply p-2 flex justify-between items-center hover:bg-[#F1F6FB] rounded-md duration-300;
+  }
+  .disableBtn {
+    @apply py-2 px-5 bg-slate-200 rounded-sm cursor-not-allowed duration-300 active:scale-90 text-white;
+  }
+  .flex_center {
+    @apply flex justify-center items-center;
+  }
+  .flex_between {
+    @apply flex justify-between items-center;
+  }
+  .flex_around {
+    @apply flex justify-around items-center;
+  }
+  .flex_evenly {
+    @apply flex justify-evenly items-center;
+  }
+}
