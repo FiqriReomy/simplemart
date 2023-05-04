@@ -31,7 +31,7 @@ const Cart = ({ totalAmount, handleOpenCart }) => {
   }, [dispatch, cart]);
 
   return (
-    <motion.div variants={fadeIn(0.3, 0)} initial="hidden" animate="show" exit="exit" className="absolute top-[35px] bg-white border w-[350px] z-[99] shadow-xl rounded-xl" onMouseLeave={handleOpenCart}>
+    <motion.div variants={fadeIn(0.3, 0)} initial="hidden" animate="show" exit="exit" className="fixed sm:absolute  left-0  top-[35px] bg-white border w-full sm:w-[350px] z-[99] shadow-xl rounded-xl" onMouseLeave={handleOpenCart}>
       <div className="absolute right-0 left-0 top-[-15px] cursor-pointer h-[40px] "></div>
       <div className="absolute right-0 top-[-35px] cursor-pointer  h-[40px]  w-[30px]"></div>
       {loading ? (

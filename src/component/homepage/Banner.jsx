@@ -63,7 +63,7 @@ const Banner = () => {
   }, [currentIndex]);
 
   return (
-    <section className="container py-2 px-5">
+    <section className="container py-2 px-2 md:px-5">
       <div className="relative z-0 group">
         <div>
           <img src={banners[currentIndex].url} alt="banner" className="animate-fadeIn" />

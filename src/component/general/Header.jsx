@@ -52,23 +52,23 @@ const Header = () => {
   return (
     <div className="h-[60px] " id="home">
       <div className="fixed left-0 right-0 top-0 bg-primary z-[999] " onClick={handleSearchClose}>
-        <div className="container py-2 px-5 flex flex-wrap items-center justify-between">
+        <div className="container py-2 px-0 md:px-5 flex flex-wrap items-center justify-between">
           <div className="hidden md:flex md:w-[20%] px-2">
             <button onClick={handleClick} className="cursor-pointer text-[20px] font-semibold text-white">
               <a href="/">SIMPLEMART</a>
             </button>
           </div>
           <div
-            className="w-[70%] md:w-[60%] relative flex flex-wrap "
+            className="w-[70%] px-2 md:w-[60%] relative flex flex-wrap "
             onClick={(e) => {
               e.stopPropagation();
             }}
           >
-            <div className=" w-full">
+            <div className="w-full">
               <SearchInput />
             </div>
           </div>
-          <div className=" w-[30%] md:w-[20%] flex_center gap-4 px-2">
+          <div className=" w-[30%] md:w-[20%] flex_center  gap-2 md:gap-4 px-2">
             <button className="relative flex items-center justify-end">
               <BiCart onMouseEnter={handleOpenCart} className="text-white" size={25} />
               <AnimatePresence mode="wait"> {openCart && <Cart totalAmount={totalAmount} handleOpenCart={handleOpenCart} />}</AnimatePresence>
@@ -85,9 +85,7 @@ const Header = () => {
                 {openMenu && <Menu user={user} handleLogout={handleLogout} handleOpenMenu={handleOpenMenu} />}
               </button>
             ) : (
-              <div className="flex_center gap-2 text-[13px] font-bold">
-                <Buttons title="Masuk" action={handleLogin} style="py-2 px-5 bg-primary border-white border-2 rounded-lg text-white font-medium active:scale-95 hover:border-black  duration-300" />
-              </div>
+              <Buttons title="Masuk" action={handleLogin} style="py-2 px-2 md:px-5 bg-primary border-white border-2 rounded-lg text-white font-medium active:scale-95 hover:border-black  duration-300" />
             )}
           </div>
         </div>

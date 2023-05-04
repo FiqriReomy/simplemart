@@ -6,6 +6,7 @@ import ProductCardSkeleton from "../Skeleton/ProductCardSkeleton";
 import { getAllProductsDiscount } from "../../redux/action/productAction";
 import flash_sale from "../../assets/flash_sale.jpg";
 import flash_banner from "../../assets/flash_banner.webp";
+import { motion } from "framer-motion";
 
 const Discount = () => {
   const carousel = useRef();
@@ -14,7 +15,7 @@ const Discount = () => {
   const [cardToShow, setCardToShow] = useState(0);
   const { discounts } = useSelector((state) => state.allDiscount);
   const filteredDiscounts = discounts.filter((data) => data.stock < 30);
-  const arrowStyle = "absolute z-[9] top-[50%] rounded-full bg-black/40 text-white w-12 h-12 -translate-y-[50%] font-bold text-lg shadow-lg opacity-0  group-hover:opacity-100 ease-in duration-300";
+  const arrowStyle = "absolute hidden sm:block z-[9] top-[50%] rounded-full bg-black/40 text-white w-12 h-12 -translate-y-[50%] font-bold text-lg shadow-lg opacity-0  group-hover:opacity-100 ease-in duration-300";
 
   const handleNext = () => {
     const slide = carousel.current.offsetWidth / cardToShow;
@@ -52,6 +53,10 @@ const Discount = () => {
     handleResize();
   }, [window.addEventListener("resize", handleResize)]);
 
+  useEffect(() => {
+    setPosition(carousel.current.scrollWidth - carousel.current.offsetWidth);
+  }, []);
+
   return (
     <div>
       <div className="container px-0 md:px-5  flex flex-wrap">
@@ -72,22 +77,22 @@ const Discount = () => {
                 <ProductCardSkeleton />
               </div>
             ) : (
-              <div className="group  relative">
+              <div className="relative group ">
                 <button className={`${arrowStyle} left-5 group-hover:-left-1 `} id="prev" onClick={handlePrev}>
                   &#10094;
                 </button>
                 <button className={`${arrowStyle}  right-5 group-hover:-right-1`} id="next" onClick={handleNext}>
                   &#10095;
                 </button>
-                <div className="overflow-hidden" ref={carousel}>
-                  <div className={`inner-carousel flex duration-300`} style={{ transform: `translateX(-${position}px)` }}>
+                <motion.div className="overflow-hidden" ref={carousel}>
+                  <motion.div className={`inner-carousel flex duration-300`} drag="x" dragConstraints={{ right: 0, left: -position }} style={{ transform: `translateX(-${position}px)` }}>
                     {discounts
                       .filter((data) => data.stock < 30)
                       .map((data, index) => (
                         <ProductCardDiscount index={index} data={data} responsiveStyle=" min-w-[50%] sm:min-w-[33%] md:min-w-[25%] lg:min-w-[20%] w-1/3 p-2 " />
                       ))}
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
             )}
           </div>

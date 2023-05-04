@@ -7,13 +7,12 @@ import official4 from "../../assets/official_store4.webp";
 
 const OfficialStore = () => {
   return (
-    <div className="py-5">
-      <div className="container px-5">
-        {" "}
-        <h4>OFFICIAL STORE</h4>
+    <div className="py-5 ">
+      <div className="container px-0 md:px-5 ">
+        <h4 className="px-2">OFFICIAL STORE</h4>
       </div>
 
-      <div className="container px-5 flex flex-wrap">
+      <div className="container  px-0 md:px-5  flex flex-wrap">
         <div className="w-1/2 md:w-1/3 p-2">
           <div className="overflow-hidden rounded-xl">
             <img className="w-full object-cover" src={slider1} alt="" />

@@ -47,7 +47,7 @@ const Categories = () => {
   };
 
   return (
-    <div className="container py-5 px-5">
+    <div className="container py-5 px-2 sm:px-5">
       <h4>KATEGORI POPULER</h4>
       <div className="flex_center flex-wrap ">{loading ? <CategoriesSkeleton /> : elements}</div>
     </div>

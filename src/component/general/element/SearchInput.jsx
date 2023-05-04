@@ -73,7 +73,7 @@ const SearchInput = () => {
       <form onSubmit={handleSearchByEnter}>
         <input
           type="search"
-          className="block outline-none w-full py-2 px-5 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
+          className="block outline-none w-full py-2 px-2 md:px-5 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500"
           placeholder="Cari Produk/Nama toko"
           value={searchParams}
           onChange={handleChange}
@@ -82,16 +82,21 @@ const SearchInput = () => {
         />
       </form>
       {openSearch && (
-        <div className="absolute right-0 left-0 ">
-          <motion.div initial={{ opacity: 0, height: "0%" }} animate={{ opacity: 1, height: "100%" }} transition={{ duration: 0.4, delay: 0.2 }} className="max-h-[250px] overflow-y-scroll w-full bg-white border rounded-lg z-[9] py-3 px-3">
+        <div className="fixed sm:absolute right-0 left-0 px-2 ">
+          <motion.div
+            initial={{ opacity: 0, height: "0%" }}
+            animate={{ opacity: 1, height: "100%" }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="max-h-[400px] sm:max-h-[250px] overflow-y-scroll w-full bg-white border rounded-lg z-[9] py-3 px-1 sm:px-3"
+          >
             {!searchParams && prevSearch.length === 0 && !loading ? (
               <div>
                 {isLoading ? (
                   "loading"
                 ) : (
-                  <div className="mb-5">
+                  <div className="w-full mb-5">
                     <h4>Terakhir Kamu Kunjungi </h4>
-                    <div className="flex  gap-5 px-5">
+                    <div className="flex flex-wrap gap-5 px-2 sm:px-5">
                       {lastSeen?.map((data, index) => (
                         <div key={index}>
                           <button onClick={() => handleSearchByHistory(data.title)} className="w-[55px] h-[55px] flex items-center rounded border overflow-hidden">

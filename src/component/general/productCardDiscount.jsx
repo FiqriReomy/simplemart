@@ -21,7 +21,7 @@ const ProductCardDiscount = ({ data, index, responsiveStyle }) => {
         <div className="rounded-xl shadow-md bg-white text-black max-h-[320px] ">
           <div className="relative h-[150px]  rounded-t-xl">
             <span className="absolute top-[-5px] left-[-5px] text-white text-[10px] font-semibold rounded px-[6px] py-[4px] bg-red-500 ">{Math.floor(data.discountPercentage)} %</span>
-            <img className=" w-full h-full object-contain rounded-t-xl" src={data.thumbnail} alt="product_image" />
+            <img className=" w-full h-full object-contain rounded-t-xl pointer-events-none" src={data.thumbnail} alt="product_image" />
           </div>
           <div className="flex flex-col justify-between p-2">
             <h5 className="font-semibold text-start mb-4" title={data.title}>

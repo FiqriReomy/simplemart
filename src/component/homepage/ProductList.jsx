@@ -22,8 +22,8 @@ const ProductList = () => {
 
   const responsiveStyle = "w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 p-2";
   return (
-    <div id="/#productlist" className="container px-5">
-      <h4>REKOMENDASI PILIHAN</h4>
+    <div id="/#productlist" className="container px-0 md:px-5">
+      <h4 className="px-2">REKOMENDASI PILIHAN</h4>
       {!products ? (
         <ProductCardSkeleton />
       ) : (
@@ -36,7 +36,7 @@ const ProductList = () => {
           {loading && <ProductCardSkeleton />}
         </div>
       )}
-      {total === limit ? "" : <Buttons loading={loading} action={loadMoreData} title="TAMPILKAN LEBIH BANYAK" style="actionBtn w-1/2 flex_center" />}
+      {total === limit ? "" : <Buttons loading={loading} action={loadMoreData} title="TAMPILKAN LEBIH BANYAK" style="actionBtn w-[95%] md:w-1/2 flex_center" />}
     </div>
   );
 };
